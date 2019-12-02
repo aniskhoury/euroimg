@@ -67,14 +67,14 @@ if (isset($_POST['descripcio'])) {
   ###           Recorrem les imatges a pujar          ###
   #######################################################
 */
-	
-	//Es recorre la llista de fitxers a pujar
+
 foreach($_FILES["fitxers"]['tmp_name'] as $key => $tmp_name){
 
 	//Es valida que el fitxer existeixi
 	if($_FILES["fitxers"]["name"][$key]) {
 	
 		$nomfitxer = $_FILES["fitxers"]["name"][$key]; 
+		$nomfitxer = md5($nomfitxer).time();
 		$source = $_FILES["fitxers"]["tmp_name"][$key];
 		$tipusFitxer = $_FILES["fitxers"]["type"];
 			
@@ -107,9 +107,6 @@ foreach($_FILES["fitxers"]['tmp_name'] as $key => $tmp_name){
 		$sentencia = $conexio->prepare("INSERT INTO imatges (idusuari, ubicacio, descripcio) VALUES (?,?,?)");
 		$sentencia->bind_param("sss",$_SESSION['idusuari'],$target_path,$descripcio);
 		$sentencia->execute();
-			
-		$idImatge = $conexio->insert_id;
-		echo "Id de la imatge: ".$idImatge;
 
 		/*TODO:Es posa el tag de la imatge.*/
 		//Separem els tags per comes, els recorrem i els posem a la bbdd associant el tag amb cada imatge
@@ -119,7 +116,7 @@ foreach($_FILES["fitxers"]['tmp_name'] as $key => $tmp_name){
 			$sentencia->bind_param("si",$tag,$idImatge);
 			$sentencia->execute();
 		}
-			
+		echo "La url es: https://euroimg.com/".$target_path;
 
 			
 	}

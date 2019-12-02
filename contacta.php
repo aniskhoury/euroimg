@@ -25,7 +25,7 @@ include("configuracio.php");
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Falta posar missatge de contacta</title>
+  <title>Contacta</title>
   <!-- Custom fonts for this theme -->
   <?php echo fragmentEstilIScripts(); ?>
 
@@ -43,7 +43,18 @@ include("configuracio.php");
 	<?php echo fragmentNavegador($codiLlengua); ?>
   <header class="masthead bg-primary text-white text-center">
 	<center>
-		Contacta  
+		<form method="post" action="formularicontacta.php">
+			<div>
+				<label for="email">eMail</label><br>
+				<input type="email" id="email" name="email"/>
+			</div>
+			<div>
+				<label for="msg">Missatge</label><br>
+				<textarea id="msg" cols="60" rows="4" name="msg"></textarea>
+			</div>
+			
+			<input type="submit" name="submit" value = "Enviar">
+		</form>
 	</center>
    <br><br> 
   </header>

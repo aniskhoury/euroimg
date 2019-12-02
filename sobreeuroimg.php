@@ -43,7 +43,7 @@ include("configuracio.php");
 	<?php echo fragmentNavegador($codiLlengua); ?>
   <header class="masthead bg-primary text-white text-center">
 	<center>
-		Sobre EuroIMG - Falta fragment explicació sobre què és EuroIMG  
+		<?php echo $missatge[10]["textSobreNosaltres"]; ?>
 	</center>
    <br><br> 
   </header>

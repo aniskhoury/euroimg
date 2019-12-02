@@ -27,7 +27,7 @@ include("configuracio.php");
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo $missatges[$codiLlengua]["titolIndex"]; ?></title>
+  <title><?php echo $missatges[$codiLlengua]["index"]["titolIndex"]; ?></title>
   <!-- Custom fonts for this theme -->
   <?php echo fragmentEstilIScripts(); ?>
 
