@@ -95,7 +95,7 @@ foreach($_FILES["fitxers"]['tmp_name'] as $key => $tmp_name){
 		//Moure el fitxer i validar que s'hagi creat correctament
 		//El primer campo es el origen y el segundo el destino
 		if(move_uploaded_file($source, $target_path)) {	
-			$resultat = "El archivo  ";
+			$resultat = "<br>El archivo  ";
 			$resultat .= '<a href="'.$target_path.'" target="_blank">'.$nomfitxer.'</a> se almaceno correctamente <br>';
 			echo $resultat;
 		}else{	
@@ -117,7 +117,7 @@ foreach($_FILES["fitxers"]['tmp_name'] as $key => $tmp_name){
 			$sentencia->execute();
 		}
 		$url = "https://euroimg.com/".$target_path;
-		echo "La url es <a href=".$url.">".$url."</a>";
+		echo "La url es <a href=".$url.">".$url."</a><br>";
 
 			
 	}
