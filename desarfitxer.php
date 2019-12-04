@@ -95,8 +95,8 @@ foreach($_FILES["fitxers"]['tmp_name'] as $key => $tmp_name){
 		//Moure el fitxer i validar que s'hagi creat correctament
 		//El primer campo es el origen y el segundo el destino
 		if(move_uploaded_file($source, $target_path)) {	
-			$resultat = "L'arxiu  ";
-			$resultat .= '<a href="'.$target_path.'" target="_blank">'.$nomfitxer.'</a> s\'ha enmagatzemat de forma exitosa <br>';
+			$resultat = "El archivo  ";
+			$resultat .= '<a href="'.$target_path.'" target="_blank">'.$nomfitxer.'</a> se almaceno correctamente <br>';
 			echo $resultat;
 		}else{	
 			echo "Ha ocurrido un error, por favor inténtelo de nuevo.<br>";
@@ -116,7 +116,8 @@ foreach($_FILES["fitxers"]['tmp_name'] as $key => $tmp_name){
 			$sentencia->bind_param("si",$tag,$idImatge);
 			$sentencia->execute();
 		}
-		echo "La url es: https://euroimg.com/".$target_path;
+		$url = "https://euroimg.com/".$target_path;
+		echo "La url es <a href=".$url.">".$url."</a>";
 
 			
 	}
