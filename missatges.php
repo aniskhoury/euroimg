@@ -33,7 +33,11 @@ $codiLlengua   = 0;
 if (isset($codisLlengues[$llengua])){
 	$codiLlengua = $codisLlengues[$llengua];
 }
-
+/* #################################
+   ### Forçar llengua a castellà ###
+   #################################
+*/
+$codiLlengua   = 10;
 $missatges[0]["index"]["titolIndex"] = "EuroIMG - Web per pujar imatges";
 $missatges[1]["index"]["titolIndex"] = "EuroIMG - irudiak igotzeko web";
 $missatges[2]["index"]["titolIndex"] = "EuroIMG - Web para cargar imaxes";
