@@ -7,7 +7,7 @@
 	#######################################################
 	
 */
-include('missatges.php');
+//include('missatges.php');
 
 
 
@@ -50,10 +50,12 @@ function fragmentNavegador($codiLlengua){
 		  </div>
 		</div>
     </nav>';
+	
   return $resultat;
 }
 
 function fragmentPujarImatgesInici($codiLlengua){
+
 	global $missatge;
 	$resultat = '  <header class="masthead bg-primary text-white text-center">
 					<center>
@@ -88,7 +90,8 @@ function fragmentPujarImatgesInici($codiLlengua){
       </div>
 
 		<!-- Masthead Subheading -->';
-	$resultat .= $missatge[$codiLlengua]["principisIndex"];
+		
+	$resultat .= $missatge[$codiLlengua]["index"]["principisIndex"];
 	$resultat .= '</div></header>';
   return $resultat;
 }

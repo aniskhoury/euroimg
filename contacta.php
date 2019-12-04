@@ -49,7 +49,7 @@ include("configuracio.php");
 				<input type="email" id="email" name="email"/>
 			</div>
 			<div>
-				<label for="msg">Missatge</label><br>
+				<label for="msg">Mensaje</label><br>
 				<textarea id="msg" cols="60" rows="4" name="msg"></textarea>
 			</div>
 			
