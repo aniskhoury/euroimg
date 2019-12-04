@@ -142,15 +142,15 @@ function fragmentAbaixDeTot($codiLlengua){
 function fragmentGaleriaCercador($codiLlengua){
 	$resultat = '<header class="masthead bg-primary text-white text-center">
 					<center>						
-						<h4 class="text-center">Cerca imatges</h4>
+						<h4 class="text-center">Busqueda de imagenes</h4>
 						<form id="cercador" method="POST" action="cercaimatgegaleria.php">
 								<div class="form-group">
 									<div class="col-sm-8">
-										Cerca per descripció de l\'imatge <input type="text" name="textacercar">
+										Busca por la descripción de las imagenes <input type="text" name="textacercar">
 									</div>
 									
 								<br>
-							<button type="submit" class="btn btn-success">Cercar</button>
+							<button type="submit" class="btn btn-success">Buscar</button>
 						</form>
 					</center>
 	</div>';
