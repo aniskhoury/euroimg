@@ -1,17 +1,17 @@
 <?php
 /*  #######################################################
-	##  Fragments de codi per modularitzar la pàgina web ##
+	##        Fragments of code for modular website.     ##
 	#######################################################
 	##               Autor: Anïs Khoury Ribas            ##
 	##               Per Meinsa Sistemas S.L.            ##
 	#######################################################
 	
 */
-//include('missatges.php');
 
 
 
-function fragmentEstilIScripts(){
+
+function fragmentStylesScripts(){
 	$resultat = '  
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- Theme CSS -->
@@ -23,9 +23,8 @@ function fragmentEstilIScripts(){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">';
 	return $resultat;
 }
-function fragmentNavegador($codiLlengua){
-	global $missatge;
-	$resultat = '  
+function fragmentNavigator(){
+	$result = '  
 	<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
 		<div class="container">
 			<a class="navbar-brand js-scroll-trigger" href="index.php">EuroIMG</a>
@@ -36,13 +35,13 @@ function fragmentNavegador($codiLlengua){
 		  <div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 			  <li class="nav-item mx-0 mx-lg-1">
-				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="galeria.php">Galeria de euroImages</a>
+				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="galery.php">Galery of euroImg</a>
 			  </li>
 			  <li class="nav-item mx-0 mx-lg-1">
-				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="sobreeuroimg.php">Sobre EuroIMG</a>
+				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="about.php">About EuroIMG</a>
 			  </li>
 			  <li class="nav-item mx-0 mx-lg-1">
-				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="contacta.php">Contacta</a>
+				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="contact.php">Contact</a>
 			  </li>
 			  
 			 
@@ -51,32 +50,32 @@ function fragmentNavegador($codiLlengua){
 		</div>
     </nav>';
 	
-  return $resultat;
+  return $result;
 }
 
-function fragmentPujarImatgesInici($codiLlengua){
+function fragmentUploadImagesIndex(){
 
-	global $missatge;
-	$resultat = '  <header class="masthead bg-primary text-white text-center">
+	global $messages;
+	$result = '  <header class="masthead bg-primary text-white text-center">
 					<center>
-					<form name="formulariPujarFitxers" id="formulariPujarFitxers" method="post" action="desarfitxer.php" enctype="multipart/form-data">
+					<form name="formLoadImages" id="formLoadImages" method="post" action="saveimages.php" enctype="multipart/form-data">
 						
-						<h4 class="text-center">Cargar Multiple Archivos</h4>
+						<h4 class="text-center">Load multiple images</h4>
 						
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Archivos</label>
+							<label class="col-sm-2 control-label">Images</label>
 							<div class="col-sm-4">
-								<input type="file" class="form-control" id="fitxers[]" name="fitxers[]" multiple="">
+								<input type="file" class="form-control" id="images[]" name="images[]" multiple="">
 							</div>
 							<div class="col-sm-4">
-							Escribe los tags,separados por coma. Ejemplo: ropa, hombre, pantalón
+							Write the tags, separaded by coma. Example: computer, screen, keyboard,...
 								<input type="text" class="form-control" id="tags" name="tags" >
 							</div>
-							Descripción de la imagen.<br>
-							<textarea rows="4" cols="60" id="descripcio" name="descripcio">
+							Descripcion of the images<br>
+							<textarea rows="4" cols="60" id="description" name="description">
 							</textarea>
 							<br>
-							<button type="submit" class="btn btn-success">Cargar</button>
+							<button type="submit" class="btn btn-success">Load</button>
 						</div>
 						
 					</form>
@@ -91,19 +90,19 @@ function fragmentPujarImatgesInici($codiLlengua){
 
 		<!-- Masthead Subheading -->';
 		
-	$resultat .= $missatge[$codiLlengua]["index"]["principisIndex"];
-	$resultat .= '</div></header>';
-  return $resultat;
+	$result .= $messages["values"];
+	$result .= '</div></header>';
+  return $result;
 }
 
-function fragmentPeuPagina($codiLlengua){
-	$resultat = '  <footer class="footer text-center">
+function fragmentFooter(){
+	$result = '  <footer class="footer text-center">
     <div class="container">
       <div class="row">
 
         <!-- Footer Location -->
         <div class="col-lg-4 mb-5 mb-lg-0">
-          <h4 class="text-uppercase mb-4">Dirección</h4>
+          <h4 class="text-uppercase mb-4">Direccion</h4>
           <p class="lead mb-0">C/ Girona, 63
             <br>08009 , Barcelona</p>
         </div>
@@ -111,52 +110,52 @@ function fragmentPeuPagina($codiLlengua){
         <!-- Footer Social Icons -->
         <div class="col-lg-4 mb-5 mb-lg-0">
 		<h4 class="text-uppercase mb-4">Privacidad</h4>
-			Estamos comprometidos con la privacidad de nuestros usuarios. Seas fotógrafo, diseñador, artista o usuario particular
+			We are committed to the privacy of our users. You are a photographer, designer, artist or individual user
         </div>
 
         <!-- Footer About Text -->
         <div class="col-lg-4">
-          <h4 class="text-uppercase mb-4">Licencia</h4>
-          <p class="lead mb-0">GPL para el código y Creative Commons para el contenido.
+          <h4 class="text-uppercase mb-4">License</h4>
+          <p class="lead mb-0">All images are licensed under Creative Commons
 
         </div>
 
       </div>
     </div>
   </footer>';
-  return $resultat;
+  return $result;
 }
-function fragmentAbaixDeTot($codiLlengua){
-	$resultat = '  <section class="copyright py-4 text-center text-white">
+function fragmentFooterAbsolut(){
+	$result = '  <section class="copyright py-4 text-center text-white">
     <div class="container">
-      <small>Gracias por confiar en nuestros servicios de EuroIMG!</small>
+      <small>Thanks for use EuroIMG services!</small>
     </div>
   </section>';
-  return $resultat;
+  return $result;
 }
 /*
 ############################################################
 ####  Formulari per cercar una imatge desde la galeria  ####
 ############################################################                  
 */
-function fragmentGaleriaCercador($codiLlengua){
-	$resultat = '<header class="masthead bg-primary text-white text-center">
+function fragmentGalerySearcher(){
+	$result = '<header class="masthead bg-primary text-white text-center">
 					<center>						
-						<h4 class="text-center">Busqueda de imagenes</h4>
-						<form id="cercador" method="POST" action="cercaimatgegaleria.php">
+						<h4 class="text-center">Search of images</h4>
+						<form id="cercador" method="POST" action="searchimagesgalery.php">
 								<div class="form-group">
 									<div class="col-sm-8">
-										Busca por la descripción de las imagenes <input type="text" name="textacercar">
+										Search using description of images <input type="text" name="textsearch">
 									</div>
 									
 								<br>
-							<button type="submit" class="btn btn-success">Buscar</button>
+							<button type="submit" class="btn btn-success">Search</button>
 						</form>
 					</center>
 	</div>';
 
-	$resultat .= '</div></header>';
-	return $resultat;
+	$result .= '</div></header>';
+	return $result;
 }
 /*
 ###################################################################
@@ -164,13 +163,13 @@ function fragmentGaleriaCercador($codiLlengua){
 ###################################################################                 
 */
 function fragmentCercaPerTag($codiLlengua){
-	$resultat = '<header class="masthead bg-primary text-white text-center">
+	$result = '<header class="masthead bg-primary text-white text-center">
 					<center>						
-						<h4 class="text-center">Cerca d\'imatges per tag</h4>
-						<form id="cercador" method="POST" action="cercaimatgetags.php">
+						<h4 class="text-center">Search images by tag</h4>
+						<form id="searcher" method="POST" action="cercaimatgetags.php">
 								<div class="form-group">
 									<div class="col-sm-8">
-										Cerca per tags <input type="text" name="textacercar">
+										Write tags <input type="text" name="textacercar">
 									</div>
 									
 								<br>
@@ -179,8 +178,8 @@ function fragmentCercaPerTag($codiLlengua){
 					</center>
 	</div>';
 
-	$resultat .= '</div></header>';
-	return $resultat;
+	$result .= '</div></header>';
+	return $result;
 }
 ##################################################
 ##    Funció que retorna imatges aleatories.    ##
@@ -188,7 +187,7 @@ function fragmentCercaPerTag($codiLlengua){
 ##      a la variable quantitatResultats        ##
 ##################################################
 function imatgeAleatoria($codiLlengua,$quantitatResultats){
-	$sql = "SELECT * FROM imatges WHERE id IN (SELECT id FROM (SELECT id FROM imatges ORDER BY RAND() LIMIT ".$quantitatResultats.") t)";
+	$sql = "SELECT * FROM images WHERE id IN (SELECT id FROM (SELECT id FROM images ORDER BY RAND() LIMIT ".$quantitatResultats.") t)";
 	
 
 }
@@ -197,11 +196,11 @@ function imatgeAleatoria($codiLlengua,$quantitatResultats){
 ###  Funció per mostrar tots els tags   ###
 ###########################################
 function mostrarTotsElsTags($codiLlengua){
-	$sentencia = "SELECT * from tags";
+	$sentence = "SELECT * from tags";
 
-	$resultat = $conexio->query($sentencia);
-	while ($tag = $resultat->fetch_assoc()) {
-		echo "<br>".$tag['nom'];
+	$result = $conexio->query($sentence);
+	while ($tag = $result->fetch_assoc()) {
+		echo "<br>".$tag['name'];
 	}
 }
 

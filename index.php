@@ -9,14 +9,14 @@
 	
 	
 */
-/*Carreguem els fragments de la pàgina web, com la capcelera, navegació, etc*/
+/*Load fragments of the website, like header, navigation, messages, etc*/
 
 include("fragments.php");
-include("missatges.php");
-include("configuracio.php");
+include("messages.php");
+include("configuration.php");
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $llengua;?>">
+<html lang="en">
 
 
 <head>
@@ -27,9 +27,9 @@ include("configuracio.php");
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo $missatges[$codiLlengua]["index"]["titolIndex"]; ?></title>
+  <title>Upload images</title>
   <!-- Custom fonts for this theme -->
-  <?php echo fragmentEstilIScripts(); ?>
+  <?php echo fragmentStylesScripts(); ?>
 
 	<style>
       #uploader {
@@ -43,16 +43,16 @@ include("configuracio.php");
 
 <body id="adalt-de-tot">
 
-	<?php echo fragmentNavegador($codiLlengua); ?>
+	<?php echo fragmentNavigator(); ?>
 
 	<!-- Masthead -->
-	<?php echo fragmentPujarImatgesInici($codiLlengua); ?>
+	<?php echo fragmentUploadImagesIndex(); ?>
 
 	<!-- Footer -->
-	<?php echo fragmentPeuPagina($codiLlengua); ?>
+	<?php echo fragmentFooter(); ?>
 
 	<!-- Copyright Section -->
-	<?php echo fragmentAbaixDeTot($codiLlengua); ?>
+	<?php echo fragmentFooterAbsolut(); ?>
 
 
 </body>

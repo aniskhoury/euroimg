@@ -1,13 +1,13 @@
 <?php
 include("fragments.php");
-include("missatges.php");
-include("configuracio.php");
+include("messages.php");
+include("configuration.php");
 
 
 
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $llengua;?>">
+<html lang="en">
 
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 
@@ -17,7 +17,7 @@ include("configuracio.php");
 
   <title></title>
   <!-- Custom fonts for this theme -->
-  <?php echo fragmentEstilIScripts(); ?>
+  <?php echo fragmentStylesScripts(); ?>
 
 	<style>
       #uploader {
@@ -31,7 +31,7 @@ include("configuracio.php");
 <body>
   <header class="masthead bg-primary text-white text-center">
 
-	<?php echo fragmentNavegador($codiLlengua); 
+	<?php echo fragmentNavigator(); 
 	?>
 	
 <?php 
@@ -40,36 +40,36 @@ $msg   = "";
 if (isset($_POST['email'])){
 	$email = $_POST['email'];
 }else{
-	echo "Debe introducir un eMail para contactar.<br>";
+	echo "You must enter an eMail to contact.<br>";
 }
 if (isset($_POST['msg'])){
 	$msg = $_POST['msg'];
 }else{
-	echo "Debe escribir un mensaje de contacto antes de enviar.";
+	echo "You must write a contact message before sending message.";
 }
 /*
 #################################################################################
-### Si hi ha un email i un missatge, llavors que desi el missatge de contacta ###
+### If there is an email and a message, then you can send the contact message ###
 #################################################################################
 */
 if ($email != "" && $msg != ""){
-	$sentencia = $conexio->prepare("INSERT INTO contacta (email, msg, readed) VALUES (?,?,?)");
+	$sentence = $connection->prepare("INSERT INTO contact (email, msg, readed) VALUES (?,?,?)");
 	$readed = false;
-	$sentencia->bind_param("ssi",$email,$msg,$readed);
-	$stateSentence = $sentencia->execute();
+	$sentence->bind_param("ssi",$email,$msg,$readed);
+	$stateSentence = $sentence->execute();
 	/* 
-	#############################################################
-	###  Si hi ha un error al enviar el missatge de contacta  ###
-	#############################################################
+	################################
+	###  check possible errors   ###
+	################################
 	*/
-	if ($estatConsulta){
-		echo "Missatge enviat correctament";
+	if ($stateSentence){
+		echo "Message sended correctly.";
 	}else{
-		echo "Error al enviar el missatge";
+		echo "Error sending contact message.";
 	}
 }
 ?>
   </header>
-<?php echo fragmentPeuPagina($codiLlengua); ?>
-<?php echo fragmentAbaixDeTot($codiLlengua); ?>
+<?php echo fragmentFooter(); ?>
+<?php echo fragmentFooterAbsolut(); ?>
 </body>	
